@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LojaController {
 	
     @GetMapping("/listar")
-	public static void listarProdutos() {
+	public String listarProdutos() {
 		
     	return "produtos";
 

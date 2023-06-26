@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,10 +17,10 @@ import com.itb.inf2fm.comercio.model.Produto;
 
 public class LojaController {
 	
-	List<Produto> ListaDeProdutos = new ArrayList<Produto>();
+	List<Produto> listaDeProdutos = new ArrayList<Produto>();
 	
     @GetMapping("/listar")
-	public String listarProdutos() {
+	public String listarProdutos(Model model) {
     	
     	Produto p1 = new Produto();
     	p1.setId(20l);
@@ -38,7 +39,7 @@ public class LojaController {
     	
     	
     	Produto p3 = new Produto();
-    	p3.setId(20l);
+    	p3.setId(21l);
     	p3.setNome("Geladeira");
     	p3.setCodigoBarras("1472583690963852741");
     	p3.setDescricao("Geladeira 2 portas inox Electrolux");
@@ -47,9 +48,12 @@ public class LojaController {
     	
     	// Adicionando os produtos a lista
     	
-		ListaDeProdutos.add(p1);
-		ListaDeProdutos.add(p2);
+		listaDeProdutos.add(p1);
+		listaDeProdutos.add(p2);
+		listaDeProdutos.add(p3);
 
+
+		model.addAttribute("listaDeProdutos", listaDeProdutos);
     	
     	return "produtos";
     	
